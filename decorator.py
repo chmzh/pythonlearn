@@ -27,8 +27,14 @@ def decorator1(func):
         #return func(args)
     return onCall
 
+class decorator3:
+    def __init__(self,func):
+        self.func = func
 
-@decorator
+    def __call__(self, *args, **kwargs):
+        self.func(*args)
+
+@decorator3
 def func2(a):
     print("fun2")
 
