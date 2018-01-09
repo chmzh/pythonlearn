@@ -15,8 +15,16 @@ print(person.wraped)
 
 
 def decorator(func):
+    class Proxy:
+        def __call__(self, *args, **kwargs):
+            return func(*args)
+    return Proxy()
+
+
+def decorator1(func):
     def onCall(*args):
-        return func(args)
+        return func(*args)
+        #return func(args)
     return onCall
 
 
