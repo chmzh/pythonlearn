@@ -44,6 +44,29 @@ func3 = decorator1(func2)
 func3(3)
 
 
+def decorator4(func):
+    def onCall(*args):
+        return func(*args)
+    return onCall
+@decorator4
+def func(x,y):
+    print("x,y",x,y)
+
+func(2,3)
+
+class C:
+    @decorator4
+    def test(self,x,y):
+        print("c x,y",x,y)
+
+c = C()
+c.test(1,2)
+
+
+
+
+
+
 
 def t(fun):
     def onCall(*args,**kwargs):
