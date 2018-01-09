@@ -32,9 +32,10 @@ def decorator1(func):
 def func2(a):
     print("fun2")
 
-func2()
+func2(1)
 
-decorator(func2)()
+func3 = decorator1(func2)
+func3(3)
 
 
 
